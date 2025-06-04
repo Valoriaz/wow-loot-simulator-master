@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import BossSearch from '../components/BossSearch';
 import LootDisplay from '../components/LootDisplay';
 import LootHistory from '../components/LootHistory';
 import { Boss, LootDrop } from '../types/wow';
-import { simulateKill } from '../utils/lootSimulator';
+import { simulateRealisticKill } from '../utils/lootSimulator';
 import { Swords, Zap } from 'lucide-react';
 
 const Index = () => {
@@ -32,7 +31,7 @@ const Index = () => {
     // Add dramatic delay for effect
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    const loot = simulateKill(selectedBoss, killCount);
+    const loot = simulateRealisticKill(selectedBoss, killCount);
     setCurrentLoot(loot);
     
     // Add to history
