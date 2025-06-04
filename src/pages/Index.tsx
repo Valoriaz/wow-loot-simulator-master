@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BossSearch from '../components/BossSearch';
 import LootDisplay from '../components/LootDisplay';
 import LootHistory from '../components/LootHistory';
+import BossLootTable from '../components/BossLootTable';
 import { Boss, LootDrop } from '../types/wow';
 import { simulateRealisticKill } from '../utils/lootSimulator';
 import { Swords, Zap } from 'lucide-react';
@@ -117,9 +118,10 @@ const Index = () => {
             <LootDisplay loot={currentLoot} isSimulating={isSimulating} />
           </div>
 
-          {/* Right Column - Loot History */}
-          <div className="lg:col-span-1">
+          {/* Right Column - Loot History & Boss Loot Table */}
+          <div className="lg:col-span-1 space-y-6">
             <LootHistory history={lootHistory} />
+            <BossLootTable boss={selectedBoss} />
           </div>
         </div>
       </div>
